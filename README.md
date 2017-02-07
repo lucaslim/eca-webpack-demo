@@ -16,7 +16,7 @@ $ cd <project-name>
 Install dependencies and run local server
 ```bash
 $ yarn install
-$ yarn start
+$ yarn serve
 ```
 
 ## Resources
