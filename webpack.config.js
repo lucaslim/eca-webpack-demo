@@ -22,7 +22,7 @@ let webpackConfig = {
     output: {
         path: `${__dirname}/build`,
         publicPath: '/',
-        filename: '[name].[hash].js'
+        filename: '[name].js'
     },
     module: {
         rules: [
@@ -75,7 +75,7 @@ if (process.env.NODE_ENV === 'production') {
     })
 
     webpackConfig.plugins.push(
-        new ExtractTextPlugin('bundle.[hash].css'),
+        new ExtractTextPlugin('[name].css'),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 unused: true,
