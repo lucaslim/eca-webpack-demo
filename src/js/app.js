@@ -19,13 +19,13 @@ class App extends Component {
     showTwitterBox(e) {
         e.preventDefault();
         this.setState({
-            itemList: [...this.state.itemList, {
+            itemList: [{
                 picture: 'http://lorempixel.com/128/128/people/',
                 name: `${randomName.first()} ${randomName.last()}`,
                 username: randomName.middle().toLowerCase(),
                 content: arnold.quote(),
                 time: new Date(),
-            }]
+            }, ...this.state.itemList]
         });
     }
 
