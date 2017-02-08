@@ -51,6 +51,9 @@ let webpackConfig = {
             names: ['shared']
         })
     ],
+    externals: {
+        jquery: 'jQuery'
+    },
     resolve: {
         modules: [
             `${__dirname}/src`,
