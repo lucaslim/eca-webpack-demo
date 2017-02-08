@@ -7,8 +7,9 @@
   "license": "MIT",
   "scripts": {
     "clean": "rimraf build",
-    "build": "npm run clean && cross-env NODE_ENV=production webpack -p",
-    "serve": "cross-env NODE_ENV=development webpack-dev-server"
+    "build": "npm run clean && cross-env NODE_ENV=production webpack -p --progress",
+    "start": "cross-env NODE_ENV=development webpack-dev-server",
+    "stats": "webpack --profile --json > stats.json"
   },
   "dependencies": {
     "bulma": "^0.3.1",

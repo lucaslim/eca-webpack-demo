@@ -3,8 +3,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const APP_ENTRY = './src/main.js';
-const __DEV__ = process.env.NODE_ENV === 'development';
-const __PROD__ = process.env.NODE_ENV === 'production';
+const NODE_ENV = process.env.NODE_ENV || 'development';
+const __DEV__ = NODE_ENV === 'development';
+const __PROD__ = NODE_ENV === 'production';
 
 let webpackConfig = {
     entry: {
@@ -16,7 +17,6 @@ let webpackConfig = {
             ]),
         shared: [
             'react',
-            'react-dom'
         ]
     },
     output: {
@@ -65,7 +65,7 @@ let webpackConfig = {
     }
 };
 
-if (process.env.NODE_ENV === 'production') {
+if (__PROD__) {
     webpackConfig.module.rules.push({
         test: /.(scss|sass)$/,
         use: ExtractTextPlugin.extract([
@@ -85,7 +85,7 @@ if (process.env.NODE_ENV === 'production') {
         }),
         new webpack.optimize.AggressiveMergingPlugin()
     )
-} else if (process.env.NODE_ENV === 'development') {
+} else if (__DEV__) {
     webpackConfig.module.rules.push({
         test: /.(scss|sass)$/,
         use: [
