@@ -1,12 +1,14 @@
 export const getTwitterData = () => {
     return require.ensure([], require => {
-        const randomName = require('random-name');
+        const randomProfile = require('random-profile-generator');
         const arnold = require('running-man');
+        
+        const profile = randomProfile.profile();
 
         return {
-            picture: 'http://lorempixel.com/128/128/people/',
-            name: `${randomName.first()} ${randomName.last()}`,
-            username: randomName.middle().toLowerCase(),
+            picture: profile.avatar,
+            name: profile.fullName,
+            username: profile.twitter,
             content: arnold.quote(),
             time: new Date(),
         }

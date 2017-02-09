@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 import { ProgressiveButton } from 'js/progressive-button';
 import ProgressiveBoxAsync from 'js/progressive-box-async';
 
-import randomName from 'random-name';
-import arnold from 'running-man';
+import { getTwitterData } from 'js/twitter-action';
+// import arnold from 'running-man';
+// import randomProfile from 'random-profile-generator';
 
 class App extends Component {
 
@@ -18,25 +19,24 @@ class App extends Component {
 
     showTwitterBox(e) {
         e.preventDefault();
-        
-        this.setState({
-            itemList: [{
-                picture: 'http://lorempixel.com/128/128/people/',
-                name: `${randomName.first()} ${randomName.last()}`,
-                username: randomName.middle().toLowerCase(),
-                content: arnold.quote(),
-                time: new Date(),
-            }, ...this.state.itemList]
-        });
 
-        // require.ensure([], 
-        //     require => require('js/twitter-action').default(),
-        //     'Show Twitter Box Call')
-        //         .then(data => {
-        //             this.setState({
-        //                 itemList: [data, ...this.state.itemList]
-        //             });
-        //         });
+        // const profile = randomProfile.profile();
+        // this.setState({
+        //     itemList: [{
+        //         picture: profile.avatar,
+        //         name: profile.fullName,
+        //         username: profile.twitter,
+        //         content: arnold.quote(),
+        //         time: new Date(),
+        //     }, ...this.state.itemList]
+        // });
+
+        getTwitterData()
+            .then(data => {
+                this.setState({
+                    itemList: [data, ...this.state.itemList]
+                })
+            });
     }
 
     render() {

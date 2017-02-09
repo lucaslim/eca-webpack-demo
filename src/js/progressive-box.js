@@ -12,7 +12,7 @@ export const ProgressiveBox = ({ picture, name, username, content, time}) =>
             <div className="media-content">
                 <div className="content">
                     <p>
-                        <strong>{name}</strong> <small>@{username}</small> <small><TimeAgo datetime={time} /></small>
+                        <strong>{name}</strong> <small>{username}</small> <small><TimeAgo datetime={time} /></small>
                         <br />
                         {content}
                     </p>
