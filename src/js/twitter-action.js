@@ -2,7 +2,6 @@ export const getTwitterData = () => {
     return require.ensure([], require => {
         const randomProfile = require('random-profile-generator');
         const arnold = require('running-man');
-        
         const profile = randomProfile.profile();
 
         return {

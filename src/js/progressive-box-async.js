@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class ProgressiveBoxAsync extends Component {
+export class ProgressiveBoxAsync extends Component {
     constructor(props) {
         super(props);
 
@@ -27,3 +27,5 @@ export default class ProgressiveBoxAsync extends Component {
         return null;
     }
 }
+
+export default ProgressiveBoxAsync;

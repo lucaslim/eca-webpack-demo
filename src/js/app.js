@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { ProgressiveButton } from 'js/progressive-button';
-import ProgressiveBoxAsync from 'js/progressive-box-async';
+import { ProgressiveBoxAsync } from 'js/progressive-box-async';
 
 import { getTwitterData } from 'js/twitter-action';
 
@@ -43,7 +43,9 @@ class App extends Component {
                     <div className="column">
                         {this.state.itemList.length <= 0
                             ? null
-                            : this.state.itemList.map((item, idx) => <ProgressiveBoxAsync key={idx} {...item} />)}
+                            : this.state.itemList.map((item, idx) =>
+                                <ProgressiveBoxAsync key={idx} {...item} />
+                            )}
                     </div>
                 </div>
             </div>
