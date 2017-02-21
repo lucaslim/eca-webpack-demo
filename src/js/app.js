@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 
 import { ProgressiveButton } from 'js/progressive-button';
-import { ProgressiveBoxAsync } from 'js/progressive-box-async';
+import { ProgressiveBox } from 'js/progressive-box';
+// import { ProgressiveBoxAsync } from 'js/progressive-box-async';
 
-import { getTwitterData } from 'js/twitter-action';
+// import { getTwitterData } from 'js/twitter-action';
+
+//Third Party API
+import arnold from 'running-man';
+import randomProfile from 'random-profile-generator';
 
 class App extends Component {
 
@@ -18,12 +23,24 @@ class App extends Component {
     showTwitterBox(e) {
         e.preventDefault();
 
-        getTwitterData()
-            .then(data => {
-                this.setState({
-                    itemList: [data, ...this.state.itemList]
-                })
-            });
+        const profile = randomProfile.profile();
+        this.setState({
+            itemList: [{
+                picture: profile.avatar,
+                name: profile.fullName,
+                username: profile.twitter,
+                content: arnold.quote(),
+                time: new Date(),
+            }, ...this.state.itemList]
+        });
+
+
+        // getTwitterData()
+        //     .then(data => {
+        //         this.setState({
+        //             itemList: [data, ...this.state.itemList]
+        //         })
+        //     });
     }
 
     render() {
@@ -44,7 +61,7 @@ class App extends Component {
                         {this.state.itemList.length <= 0
                             ? null
                             : this.state.itemList.map((item, idx) =>
-                                <ProgressiveBoxAsync key={idx} {...item} />
+                                <ProgressiveBox key={idx} {...item} />
                             )}
                     </div>
                 </div>
