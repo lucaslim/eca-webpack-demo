@@ -65,6 +65,11 @@ let webpackConfig = {
         hot: true,
         contentBase: `${__dirname}/build`,
         publicPath: '/',
+        stats: {
+            chunks: false,
+            chunkModules: false,
+            colors: true
+        }
     }
 };
 
