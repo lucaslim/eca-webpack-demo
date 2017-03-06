@@ -1,5 +1,6 @@
 import React from 'react';
 import TimeAgo from 'timeago-react';
+import 'images/some-image2.jpg';
 
 export const ProgressiveBox = ({ picture, name, username, content, time}) =>
     <div className="box">
