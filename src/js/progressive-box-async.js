@@ -16,7 +16,7 @@ export class ProgressiveBoxAsync extends Component {
                 component: Component
             })
 
-        }, 'Progressive Box Component');
+        }, 'progressive-box');
     }
 
     render() {

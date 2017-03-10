@@ -22,7 +22,8 @@ let webpackConfig = {
 	output: {
 		path: `${__dirname}/build`,
 		publicPath: '/',
-		filename: '[name].js'
+		filename: '[name].js',
+		chunkFilename: '[name].js'
 	},
 	module: {
 		rules: [

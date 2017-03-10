@@ -15,8 +15,8 @@ $ cd <project-name>
 
 Install dependencies and run local server
 ```bash
-$ yarn install
-$ yarn serve
+$ npm install
+$ npm start
 ```
 
 ## Resources

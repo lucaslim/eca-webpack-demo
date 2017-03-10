@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
 import { ProgressiveButton } from 'js/progressive-button';
-import { ProgressiveBox } from 'js/progressive-box';
-// import { ProgressiveBoxAsync as ProgressiveBox } from 'js/progressive-box-async';
+import { ProgressiveBoxAsync as ProgressiveBox } from 'js/progressive-box-async';
 
 import { getTwitterData } from 'js/twitter-action';
 
@@ -19,6 +18,9 @@ class App extends Component {
 	showTwitterBox(e) {
 		e.preventDefault();
 
+		/**
+		 * Calls method from 'js/twitter-action.js' file
+		 */
 		getTwitterData()
 			.then(data => {
 				this.setState({

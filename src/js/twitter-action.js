@@ -1,5 +1,11 @@
 export const getTwitterData = () => {
-	// return require.ensure([], require => {
+	
+	/**
+	 * Webpack would split this part into a single file.
+	 * 
+	 * require.ensure(['dependencies'], function() { }, 'filename');
+	 */
+	return require.ensure([], require => {
 		const randomProfile = require('random-profile-generator');
 		const arnold = require('running-man');
 		const profile = randomProfile.profile();
@@ -15,7 +21,7 @@ export const getTwitterData = () => {
 				time: new Date(),
 			});
 		})
-	// }, 'Get Twitter Action Component');
+	}, 'twitter-action-component');
 }
 
 export default getTwitterData;
