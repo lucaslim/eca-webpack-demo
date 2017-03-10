@@ -9,7 +9,7 @@ Quick demo build using webpack
 
 Clone the project 
 ```bash
-$ git clone git@github.com:lucaslim/webpack-demo.git <project-name>
+$ git clone git@github.com:lucaslim/eca-webpack-demo.git <project-name>
 $ cd <project-name>
 ```
 
